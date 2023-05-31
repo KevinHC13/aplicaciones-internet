@@ -18,16 +18,6 @@ Route::get('/', function () {
     return view('principal');
 });
 
-Route::get('/alumnos', function () {
-    return view('alumnos');
-});
-
-Route::get('/curriculum', function () {
-    return view('curriculum');
-});
-
-
-// Ruta para el registro de usuarios
-Route::get('/crear-cuenta', [RegisterController::class,'index']);
-
+Route::get('/crearCuenta', [RegisterController::class,'index'])->name('register');
+Route::post('/crearCuenta', [RegisterController::class,'store']);
 
