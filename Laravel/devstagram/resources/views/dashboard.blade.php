@@ -26,4 +26,52 @@
             </p>
         </div>
     </div>
+    </div>
+
+    <div class="m-7 flex justify-center mx-auto">
+
+<div class="relative overflow-x-auto w-5/6 shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                    Titulo
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Descripción
+                </th>
+                <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-gray-800">
+                    Id del usuario
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($posts as $post)
+                @if ($post->user_id == $user->id)
+                <tr class="border-b border-gray-200 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                        {{ $post->title }}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{ $post->description }}
+                    </td>
+                    <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
+                        {{ $post->user_id }}
+                    </td>
+                </tr>
+                        
+                @endif
+            @endforeach
+
+
+        </tbody>
+    </table>
+</div>
+
+
+    </div>
+
+
+   
 @endsection

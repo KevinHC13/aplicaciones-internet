@@ -5,11 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Devstagram</title>
+    @stack('styles')
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
+    
 </head>
 
-<body>
+<body> 
     <header class="p-5 border-b bg-white shadow">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-3xl font-black">
@@ -28,7 +31,7 @@
                     
                       
 
-                    <a class="font-bold text-gray-600" href="#">
+                    <a class="font-bold text-gray-600" href="{{ route('posts.index',auth()->user()->username) }}">
                         Hola: <span class="font-normal">{{ auth()->user()->username }}</span>
                     </a>
                     <form method="POST" action="{{ route('logout') }}">
@@ -40,7 +43,7 @@
                         
             @guest
                 <nav class="flex gap-2 items-center">
-                    <a class="font-bold uppercase text-gray-600" href="#">Login</a>
+                    <a class="font-bold uppercase text-gray-600" href="{{ route('login') }}">Login</a>
                     <a class="font-bold uppercase text-gray-600" href="{{ route('register') }}">Crear Cuenta</a>
                 </nav>    
             @endguest
